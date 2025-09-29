@@ -96,8 +96,24 @@ class SuicideDetector:
         preds = probs.argmax(axis=-1).tolist()
         results = []
         for i, pred_id in enumerate(preds):
-            label = self.id2label.get(pred_id, str(pred_id))
-            scores = {self.id2label[j]: float(probs[i][j]) for j in range(probs.shape[1])}
+            # Map numeric labels to meaningful text labels
+            if pred_id == 0:
+                label = "non_suicidal"
+            elif pred_id == 1:
+                label = "suicidal"
+            else:
+                label = self.id2label.get(pred_id, f"label_{pred_id}")
+            
+            # Create scores dict with meaningful labels
+            scores = {}
+            for j in range(probs.shape[1]):
+                if j == 0:
+                    scores["non_suicidal"] = float(probs[i][j])
+                elif j == 1:
+                    scores["suicidal"] = float(probs[i][j])
+                else:
+                    scores[self.id2label.get(j, f"label_{j}")] = float(probs[i][j])
+            
             results.append(
                 {"label": label, "score": float(probs[i][pred_id]), "scores": scores}
             )
