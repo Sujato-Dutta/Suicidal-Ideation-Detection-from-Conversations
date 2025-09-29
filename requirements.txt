@@ -11,8 +11,8 @@ pytest
 python-dotenv
 datasets
 dagshub
-transformers
-lime
+transformers==4.56.2
 tensorflow
 tf-keras
 torch
+plotly

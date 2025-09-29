@@ -8,14 +8,13 @@ import tensorflow as tf
 from model_loader import load_model
 from utils.logger import get_logger
 from monitoring.mlflow_helper import setup_mlflow, MlflowHelper
-from explainability.lime_explainer import LimeExplainer
 
 logger = get_logger(__name__)
 
 
 class SuicideDetector:
     """
-    TensorFlow-based text classifier wrapper with optional MLflow logging and LIME explanations.
+    TensorFlow-based text classifier wrapper with optional MLflow logging.
     """
     def __init__(
         self,
@@ -57,7 +56,6 @@ class SuicideDetector:
     def predict_proba(self, texts: List[str]) -> np.ndarray:
         """
         Returns probability array of shape (n_samples, n_classes).
-        This function is compatible with LIME's classifier_fn signature.
         """
         enc = self.tokenizer(
             texts,
@@ -175,37 +173,6 @@ class SuicideDetector:
             return results
 
         raise TypeError("Input must be a string or list of strings.")
-    #LIME explanations
-
-    def explain(
-        self,
-        text: str,
-        num_features: int = 10,
-        top_labels: int = 1,
-        log_to_mlflow: bool = False,
-    ) -> Dict[str, Any]:
-        """
-        Generate a LIME explanation for a single text.
-        Returns a dict with 'summary' and 'explanation' keys.
-        """
-        # Initialize LIME with our class names
-        explainer = LimeExplainer(class_names=self.class_names)
-        explanation = explainer.explain(
-            text=text,
-            predict_proba=self.predict_proba,
-            num_features=num_features,
-            top_labels=top_labels,
-        )
-
-        if log_to_mlflow and self.mlflow_enabled:
-            try:
-                with MlflowHelper(run_name="explain", tags=self.mlflow_tags) as mlf:
-                    mlf.log_params({"num_features": num_features, "top_labels": top_labels})
-                    mlf.log_dict(explanation, artifact_file="explanations/lime_explanation.json")
-            except Exception as e:
-                logger.warning(f"MLflow logging failed: {e}")
-
-        return explanation
 
 
 if __name__ == "__main__":
@@ -229,10 +196,5 @@ if __name__ == "__main__":
     batch_results = detector.predict(test_texts, log_to_mlflow=True)
     for i, res in enumerate(batch_results):
         print(f"Text {i+1}: {res}")
-    
-    # Test LIME explanation
-    print(f"\nGenerating LIME explanation for: '{test_text}'")
-    explanation = detector.explain(test_text, num_features=5, log_to_mlflow=True)
-    print(f"Explanation summary: {explanation['summary']}")
     
     print("\nAll tests completed successfully!")
