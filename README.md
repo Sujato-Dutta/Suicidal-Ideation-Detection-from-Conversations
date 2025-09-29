@@ -34,7 +34,7 @@ App link: https://suicidal-ideation-detection-from-conversations-vubkqsyggfcgrov
   - Save artifacts (config, tokenizer, weights) to project structure below
 
 ## 📦 Artifacts
-Model files are stored under:
+Model files are stored.
 <mcfolder name="fine_tuned_tinybert_suicide_detection" path="artifacts/fine_tuned_tinybert_suicide_detection/fine_tuned_tinybert_suicide_detection"></mcfolder>
 
 Included files (typical):
@@ -45,44 +45,6 @@ Included files (typical):
 - `tokenizer_config.json`
 - `training_args.bin`
 - `vocab.txt`
-
-## 🗂 Project Structure
-.
-├── .gitignore
-├── README.md
-├── requirements.txt
-├── setup.py
-│
-├── app/
-│ └── streamlit_app.py
-│
-├── artifacts/
-│ └── fine_tuned_tinybert_suicide_detection/
-│ └── fine_tuned_tinybert_suicide_detection/
-│
-├── research/
-│ └── Suicide_Detection.ipynb
-│
-├── src/
-│ ├── init.py
-│ ├── model_loader.py
-│ ├── model_predict.py
-│
-│ ├── monitoring/
-│ │ ├── init.py
-│ │ └── mlflow_helper.py
-│
-│ ├── suicidal_ideation_pipeline.egg-info/
-│ │ ├── PKG-INFO
-│ │ ├── SOURCES.txt
-│ │ ├── dependency_links.txt
-│ │ ├── not-zip-safe
-│ │ └── top_level.txt
-│
-│ └── utils/
-│ ├── init.py
-│ ├── exceptions.py
-│ └── logger.py
 
 ## Author
 Sujato Dutta | LinkedIn [https://www.linkedin.com/in/sujato-dutta/]
