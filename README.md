@@ -46,5 +46,45 @@ Included files (typical):
 - `training_args.bin`
 - `vocab.txt`
 
+## 📂 Project Structure
+
+```bash
+├── .gitignore                                   # Ignore unnecessary files for Git
+├── README.md                                    # Project documentation and overview
+├── requirements.txt                             # Python dependencies
+├── setup.py                                     # Package setup configuration
+│
+├── app/                                         # Streamlit app interface
+│   └── streamlit_app.py                         # Main Streamlit script
+│
+├── artifacts/                                   # Saved model artifacts
+│   └── fine_tuned_tinybert_suicide_detection/   # Fine-tuned TinyBERT model directory
+│       └── fine_tuned_tinybert_suicide_detection/  # Model files and tokenizer
+│
+├── research/                                    # Jupyter research notebooks
+│   └── Suicide_Detection.ipynb                  # Model experimentation and analysis
+│
+├── src/                                         # Source code for the pipeline
+│   ├── __init__.py                              # Initialize source package
+│   ├── model_loader.py                          # Load fine-tuned TinyBERT model
+│   ├── model_predict.py                         # Inference and prediction logic
+│
+│   ├── monitoring/                              # Monitoring and tracking utilities
+│   │   ├── __init__.py
+│   │   └── mlflow_helper.py                     # MLflow tracking helper functions
+│
+│   ├── suicidal_ideation_pipeline.egg-info/     # Distribution metadata
+│   │   ├── PKG-INFO
+│   │   ├── SOURCES.txt
+│   │   ├── dependency_links.txt
+│   │   ├── not-zip-safe
+│   │   └── top_level.txt
+│
+│   └── utils/                                   # Utility modules
+│       ├── __init__.py
+│       ├── exceptions.py                        # Custom exception handling
+│       └── logger.py                            # Logging configuration
+```
+
 ## Author
 Sujato Dutta | LinkedIn [https://www.linkedin.com/in/sujato-dutta/]
