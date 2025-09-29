@@ -4,9 +4,11 @@ A production-ready Streamlit application that analyzes conversational text for p
 
 > Important: This tool is for informational purposes only and must not replace professional assessment. If someone is at risk, contact local emergency services or crisis hotlines immediately.
 
+
 ## 🔍 Demo
 
 App link: https://suicidal-ideation-detection-from-conversations-vubkqsyggfcgrov.streamlit.app/
+
 
 ## ✨ Features
 - Fast text classification using fine‑tuned TinyBERT
@@ -48,32 +50,39 @@ Included files (typical):
 .
 ├── .gitignore
 ├── README.md
-├── app/
-│   └── streamlit_app.py
-├── artifacts/
-│   └── fine_tuned_tinybert_suicide_detection/
-│       └── fine_tuned_tinybert_suicide_detection/
 ├── requirements.txt
-├── research/
-│   └── Suicide_Detection.ipynb
 ├── setup.py
-└── src/
-    ├── __init__.py
-    ├── model_loader.py
-    ├── model_predict.py
-    ├── monitoring/
-    │   ├── __init__.py
-    │   └── mlflow_helper.py
-    ├── suicidal_ideation_pipeline.egg-info/
-    │   ├── PKG-INFO
-    │   ├── SOURCES.txt
-    │   ├── dependency_links.txt
-    │   ├── not-zip-safe
-    │   └── top_level.txt
-    └── utils/
-        ├── __init__.py
-        ├── exceptions.py
-        └── logger.py
+│
+├── app/
+│ └── streamlit_app.py
+│
+├── artifacts/
+│ └── fine_tuned_tinybert_suicide_detection/
+│ └── fine_tuned_tinybert_suicide_detection/
+│
+├── research/
+│ └── Suicide_Detection.ipynb
+│
+├── src/
+│ ├── init.py
+│ ├── model_loader.py
+│ ├── model_predict.py
+│
+│ ├── monitoring/
+│ │ ├── init.py
+│ │ └── mlflow_helper.py
+│
+│ ├── suicidal_ideation_pipeline.egg-info/
+│ │ ├── PKG-INFO
+│ │ ├── SOURCES.txt
+│ │ ├── dependency_links.txt
+│ │ ├── not-zip-safe
+│ │ └── top_level.txt
+│
+│ └── utils/
+│ ├── init.py
+│ ├── exceptions.py
+│ └── logger.py
 
 ## Author
 Sujato Dutta | LinkedIn [https://www.linkedin.com/in/sujato-dutta/]
