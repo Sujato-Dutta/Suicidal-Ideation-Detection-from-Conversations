@@ -17,6 +17,7 @@ App link: https://suicidal-ideation-detection-from-conversations-vubkqsyggfcgrov
 - Lightweight, responsive UI in Streamlit
 - Simple logging and error handling
 - Monitoring using mlflow
+- Containerized using Docker
 
 ## 🧪 Model & Training
 - Base: TinyBERT (Hugging Face Transformers)
