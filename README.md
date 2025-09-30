@@ -11,7 +11,7 @@ App link: https://suicidal-ideation-detection-from-conversations-vubkqsyggfcgrov
 
 
 ## ✨ Features
-- Fast text classification using fine‑tuned TinyBERT
+- Fast text classification using fine‑tuned TinyBERT (for viewing the colab notebook -> https://dagshub.com/Sujato-Dutta/Suicidal-Ideation-Detection-from-Conversations/src/main/research/Suicide_Detection.ipynb)
 - Single and batch text analysis
 - Confidence visualization (matplotlib)
 - Lightweight, responsive UI in Streamlit
