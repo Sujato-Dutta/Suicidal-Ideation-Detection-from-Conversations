@@ -234,7 +234,7 @@ def display_prediction_result(result):
     if is_high_risk:
         st.markdown(f"""
         <div class="prediction-box high-risk">
-            <h3>⚠️ High Risk Detected</h3>
+            <h3>⚠️ Predicted Results</h3>
             <p><strong>Prediction:</strong> {label.title()}</p>
             <p><strong>Confidence:</strong> {confidence:.1%}</p>
         </div>
